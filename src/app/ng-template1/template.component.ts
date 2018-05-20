@@ -4,10 +4,9 @@ import { EmitType, createElement } from '@syncfusion/ej2-base';
 
 @Component({
   selector: 'app-container',
-  styleUrls: ['./content.component.css'],
-  templateUrl: './content.component.html'
+  templateUrl: './template.component.html'
 })
-export class ContentComponent {
+export class TemplateComponent1 {
   @ViewChild('defaultDialog')
   public defaultDialog: DialogComponent;
   public dialogHeader: string = 'Drag Me!!!';
@@ -19,6 +18,7 @@ export class ContentComponent {
   public target: string = '#dialogTarget';
   public showCloseIcon: Boolean = false;
   public visible: Boolean = true;
+  public updateContent: Boolean;
   public dialogClose: EmitType<Object> = () => {
     document.getElementById('dialogBtn').style.display = 'block';
 }
@@ -26,7 +26,7 @@ public dialogOpen: EmitType<Object> = () => {
   document.getElementById('dialogBtn').style.display = 'none';
 }
 public dlgBtnClick: EmitType<Object> = () => {
-  
+  this.updateContent = true;
 }
 public dlgButtons: Object[] = [{ click: this.dlgBtnClick.bind(this), buttonModel: { content: 'Update-Content', isPrimary: true } }];
 public dialogBtnClick: EmitType<Object> = () => {

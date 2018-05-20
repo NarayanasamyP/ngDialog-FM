@@ -4,10 +4,9 @@ import { EmitType, createElement } from '@syncfusion/ej2-base';
 
 @Component({
   selector: 'app-container',
-  styleUrls: ['./content.component.css'],
-  templateUrl: './content.component.html'
+  templateUrl: './directive.component.html'
 })
-export class ContentComponent {
+export class DirectiveComponent {
   @ViewChild('defaultDialog')
   public defaultDialog: DialogComponent;
   public dialogHeader: string = 'Drag Me!!!';

@@ -1,0 +1,13 @@
+<h3 >create dialog as dyanamic using template</h3>
+
+<div id='dialogTarget'>
+    <div *ngIf="updateContent; then contentTemplate" class="box red">
+        </div>
+<button  ejs-button id="dialogBtn" Class="e-control e-btn" #confirmButton (click)="dialogBtnClick()">Open Dialog</button>
+<ng-template  #contentTemplate>
+<ejs-dialog id="defaultDialog" #defaultDialog [visible]='visible' [header]='dialogHeader' [allowDragging]='dialogdragging' [animationSettings]='animationSettings' [showCloseIcon]='dialogCloseIcon' (open)="dialogOpen()" (close)="dialogClose()" [target]='target'
+[width]='dialogWidth' [content]='dlgContent' [buttons]='dlgButtons'>
+</ejs-dialog>
+</ng-template>
+</div>
+

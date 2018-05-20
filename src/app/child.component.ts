@@ -1,16 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-container',
+  selector: 'wrapper',
   template: `
-  <wrapper>
-  <ng-container ngProjectAs="div">
-    <div>New Content from Div</div>
-  </ng-container>
-  <ng-container ngProjectAs="para">
-    <p>New Content from paragraph</p>
-  </ng-container>
-</wrapper>
+  <div style="color:blue;"> Content without using ng-content  </div>
+  <ng-content></ng-content>
   `
 })
 export class ChildComponent {

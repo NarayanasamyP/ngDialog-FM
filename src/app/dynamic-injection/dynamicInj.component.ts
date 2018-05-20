@@ -1,4 +1,4 @@
-import {Component, TemplateRef, ViewChild, Compiler, ViewContainerRef, ComponentFactoryResolver, NgModule, VERSION} from '@angular/core';
+import {Component, ElementRef, ViewChild, Compiler, ViewContainerRef, ComponentFactoryResolver, NgModule, VERSION, asNativeElements} from '@angular/core';
 import { Dialog } from '@syncfusion/ej2-ng-popups';
 import {Newcomponent} from './childComponent';
 // import {Newcomponent} from './childComponent.ts'; 
@@ -32,12 +32,7 @@ export class DynamicInjComponent {
   //childComponent : ChildComponent;
   public name: string = `rendering dialog content as dynamic`;
   public isChildModal: boolean = false;
-  openDialog() {
-     let componentFactory = this.componentResolver.resolveComponentFactory(Newcomponent);
-        const ref = this.viewContainerRef.createComponent(componentFactory);
-      let newCompEle = ref.instance.itemTemplate;
-     this.createDialog(newCompEle.nativeElement);
-  }
+ 
   public dialogObj: Dialog;
   // This is potentially where the logic for creating the modal would be
   public createDialog = (contentVal: any) => {
@@ -57,6 +52,12 @@ export class DynamicInjComponent {
     });
     this.dialogObj.appendTo('#modalDialog');
   }
+  openDialog() {
+    let componentFactory = this.componentResolver.resolveComponentFactory(Newcomponent);
+    const ref = this.viewContainerRef.createComponent(componentFactory);
+    let newCompEle = ref.instance.itemTemplate as (any);
+    this.createDialog(newCompEle.nativeElement);
+ }
 
   dlgButtonClick() {
     this.dialogObj.destroy();
