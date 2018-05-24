@@ -12,7 +12,7 @@ import { DynamicInjComponent } from './dynamic-injection/dynamicInj.component';
 import { FeatureComponent } from './dialog-feature-matrix/dialog.component';
 import { ChildComponent }  from './child.component';
 import { DirectiveComponent }  from './directives/directive.component';
-import { ContentDirective }  from './ng-template2/content-directive1';
+import { ContentDirective }  from './directives/content-directive1';
 import {Newcomponent} from './dynamic-injection/childComponent';
 
 // const appRoutes: Routes = [

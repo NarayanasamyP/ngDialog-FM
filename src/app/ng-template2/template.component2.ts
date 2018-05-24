@@ -10,7 +10,6 @@ export class TemplateComponent2 {
   @ViewChild('defaultDialog') defaultDialog: DialogComponent;
   public dialogHeader: string = 'Drag Me!!!';
   public dialogCloseIcon: Boolean = true;
-  public dlgContent: string = 'Dialog created dynamically!';
   public dialogWidth: string = '300px';
   public dialogdragging: Boolean = true;
   public animationSettings: Object = { effect: 'None' };
@@ -21,20 +20,19 @@ export class TemplateComponent2 {
   public updateContent: Boolean;
   public dialogClose: EmitType<Object> = () => {
     document.getElementById('dialogBtn').style.display = 'block';
-}
-public dialogOpen: EmitType<Object> = () => {
-  document.getElementById('dialogBtn').style.display = 'none';
-}
-public dlgBtnClick: EmitType<Object> = () => {
-  this.defaultDialog.hide();
-  document.getElementById('dialogBtn').style.display = 'block';
-}
-public dlgButtons: Object[] = [{ click: this.dlgBtnClick.bind(this), buttonModel: { content: 'Close', isPrimary: true } }];
-public dialogBtnClick: EmitType<Object> = () => {
-  this.updateContent = true;
-  if (this.defaultDialog != null) {
-  this.defaultDialog.visible = true;
   }
-  document.getElementById('dialogBtn').style.display = 'none';
-}
+  public dialogOpen: EmitType<Object> = () => {
+    document.getElementById('dialogBtn').style.display = 'none';
+  }
+  public dlgBtnClick: EmitType<Object> = () => {
+    this.defaultDialog.hide();
+    document.getElementById('dialogBtn').style.display = 'block';
+  }
+  public dialogBtnClick: EmitType<Object> = () => {
+    this.updateContent = true;
+    if (this.defaultDialog != null) {
+      this.defaultDialog.visible = true;
+    }
+    document.getElementById('dialogBtn').style.display = 'none';
+  }
 }
